@@ -1,12 +1,12 @@
 packages:
   - 'packages/*'
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.6a30b43184ad1c159091d51d728ee8c249392aa1
+  vite-plus: 0.0.0-commit.6a30b43184ad1c159091d51d728ee8c249392aa1
   typescript: npm:typescript-native-bridge@latest
 overrides:
-  vite: 'catalog:'
   typescript: 'catalog:'
+  vite@*: 'catalog:'
 allowBuilds:
   '@parcel/watcher': false
   esbuild: false
@@ -34,3 +34,8 @@ minimumReleaseAgeExclude:
   - '@yuku-core/*'
   - '@yuku-toolchain/*'
   - '@iconify/json@2.2.541'
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: '*'
