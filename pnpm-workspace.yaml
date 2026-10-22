@@ -1,12 +1,12 @@
 packages:
   - 'packages/*'
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e
+  vite-plus: 0.0.0-commit.6bc2d240a024170c08fbc831f0c201c162afd22e
   typescript: npm:typescript-native-bridge@latest
 overrides:
-  vite: 'catalog:'
   typescript: 'catalog:'
+  vite@*: 'catalog:'
 allowBuilds:
   '@parcel/watcher': false
   esbuild: false
@@ -16,4 +16,26 @@ shamefullyHoist: true
 ignoreWorkspaceRootCheck: true
 linkWorkspacePackages: true
 minimumReleaseAgeExclude:
+  # ecosystem-ci smoke test: preview builds and freshly pinned toolchain packages
+  - vite-plus
+  - '@voidzero-dev/*'
+  - '@oxc-project/*'
+  - oxlint
+  - '@oxlint/*'
+  - oxfmt
+  - '@oxfmt/*'
+  - oxlint-tsgolint
+  - '@oxlint-tsgolint/*'
+  - vitest
+  - '@vitest/*'
+  - tinybench
+  - yuku-core
+  - yuku-parser
+  - '@yuku-core/*'
+  - '@yuku-toolchain/*'
   - '@iconify/json@2.2.541'
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: '*'
